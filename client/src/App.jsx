@@ -1,0 +1,30 @@
+import React,{lazy, Suspense} from 'react'
+import './App.css'
+import Services from '../pages/services'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+
+const Home =lazy(()=> import ("../pages/Home"));
+const About =lazy(()=> import ("../pages/About"));
+const Contact =lazy(()=> import ("../pages/Contact"));
+const Register =lazy(()=> import ("../pages/Register"));
+
+
+
+const App = () => {
+  return (
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/contact" element={<Contact/>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/services" element={<Services/>}/>
+    </Routes>
+    
+    </BrowserRouter>
+    </>
+  )
+}
+
+export default App
