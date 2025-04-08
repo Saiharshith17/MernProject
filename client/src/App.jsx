@@ -9,12 +9,13 @@ const Contact =lazy(()=> import ("../pages/Contact"));
 const Register =lazy(()=> import ("../pages/Register"));
 const Login=lazy(()=> import("../pages/Login"));
 const Error=lazy(()=> import("../pages/Error"));
-
+const Navbar=lazy(()=> import("../components/Navbar"));
 
 const App = () => {
   return (
     <>
     <BrowserRouter>
+    <Navbar />
     <Routes>
       <Route path="/Home" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
