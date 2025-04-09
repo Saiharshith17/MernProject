@@ -1,5 +1,5 @@
 const express=require("express");
-const router=express.Router();
+const  router=express.Router();
 const {home,register,login}=require("../controllers/auth-controller");
 const validate=require("../middlewares/validate-middleware");
 const signupSchema=require("../validators/auth-validator");
@@ -9,6 +9,7 @@ const signupSchema=require("../validators/auth-validator");
 //        .status(200)
 //        .send("good");
 // });
+
 
 
 router.route("/").get(home);
