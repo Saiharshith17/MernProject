@@ -3,6 +3,7 @@ import './App.css'
 import Services from '../pages/services'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 
+
 const Home =lazy(()=> import ("../pages/Home"));
 const About =lazy(()=> import ("../pages/About"));
 const Contact =lazy(()=> import ("../pages/Contact"));
@@ -10,7 +11,7 @@ const Register =lazy(()=> import ("../pages/Register"));
 const Login=lazy(()=> import("../pages/Login"));
 const Error=lazy(()=> import("../pages/Error"));
 const Navbar=lazy(()=> import("../components/Navbar"));
-
+const Footer=lazy(()=> import("../components/Footer/Footer"));
 const App = () => {
   return (
     <>
@@ -25,7 +26,7 @@ const App = () => {
       <Route path="/login" element={<Login/>}/>
       <Route path="*" element={<Error/>}/>
     </Routes>
-    
+    <Footer/>
     </BrowserRouter>
     </>
   )

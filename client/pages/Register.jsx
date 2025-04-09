@@ -23,6 +23,14 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
+    const response= fetch(`http://localhost:5000/api/auth/register`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+    });
+
+     
   };
   return (
     <>
