@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-
+import {useNavigate} from 'react-router-dom'
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
@@ -8,6 +8,7 @@ const Register = () => {
     password: "",
   });
 
+  const Navigate=useNavigate();
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -31,6 +32,10 @@ const Register = () => {
         },
         body:JSON.stringify(user),
       });
+      if(response.ok){
+       setUser( {username: "",email: "",phone: "",password: "",});
+    Navigate("./login");
+      }
       console.log(response);
     }catch(error){
       console.log(error);
