@@ -5,7 +5,7 @@ node_modules/
 npm-debug.log*
 
 # sensitive config
-.env
+server/.env
 
 # OS-specific
 .DS_Store
