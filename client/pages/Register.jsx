@@ -1,6 +1,8 @@
 import React,{ useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 const Register = () => {
+
+  const URL="http://localhost:5000/api/auth/register";
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -25,7 +27,7 @@ const Register = () => {
     e.preventDefault();
     console.log(user);
     try{
-      const response= await fetch(`http://localhost:5000/api/auth/register`,{
+      const response= await fetch(URL,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
@@ -33,8 +35,13 @@ const Register = () => {
         body:JSON.stringify(user),
       });
       if(response.ok){
+        const res_data=await response.json();
+        console.log("res from server", res_data);
+
+        localStorage.setItem("token", res_data.token);
+
        setUser( {username: "",email: "",phone: "",password: "",});
-    Navigate("./login");
+    Navigate("/login");
       }
       console.log(response);
     }catch(error){

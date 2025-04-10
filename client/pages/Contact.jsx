@@ -75,7 +75,7 @@ const Contact = () => {
                   value={contact.message}
                   onChange={handleInput}
                   required
-                  cols="30"
+                  cols="50"
                   rows="6"
                 ></textarea>
               </div>

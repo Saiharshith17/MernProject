@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import {useNavigate} from "react-router-dom";
 const Login = () => {
 
+
+  const URL="http://localhost:5000/api/auth/login"
     const [user,setUser]=useState({
         email:"",
         password:"",
@@ -18,10 +20,35 @@ const Login = () => {
             [name]:value,
         });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(contact);
+        console.log(user);
+        try{
+          const response=await fetch(URL,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+          },
+          body:JSON.stringify(user),
+          });
+          console.log("login", response);
+          if(response.ok){
+            alert("login successful");
+            const res_data=await response.json();
+            localDtorage.setItem("token",res_data.token);
+            setUser({
+              email:"",password:""
+            });
+            navigate("/Home");
+          }else{
+            alert("invalid Credentials");
+          }
+        }catch(error){
+          console.log(error);
+        }
       };
+
+
 
 
   return (
@@ -51,6 +78,7 @@ const Login = () => {
                       value={user.email}
                       onChange={handleInput}
                       placeholder="email"
+                      style={{ width: '400px' }}
                     />
                   </div>
 
@@ -62,11 +90,12 @@ const Login = () => {
                       value={user.password}
                       onChange={handleInput}
                       placeholder="password"
+                      style={{ width: '400px' }}
                     />
                   </div>
                   <br />
                   <button type="submit" className="btn btn-submit">
-                    Register Now
+                    Login
                   </button>
                 </form>
               </div>

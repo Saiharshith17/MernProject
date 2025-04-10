@@ -222,7 +222,9 @@ a.active {
 .section-contact {
   & .contact-content {
     padding: 0;
-
+    min-width:100%;
+    display:flex;
+    justify-content:space-between;
     & h1 {
       margin-bottom: 3.2rem;
     }
@@ -233,13 +235,19 @@ a.active {
   & .contact-img {
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items:center;
+    width: 50%;
     & img {
-      width: 80%;
+      width: 50%;
       height: auto;
     }
   }
-
+  & .container.grid.grid-two-cols {
+    /* Your custom styles */
+    display:flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
   & .section-form {
     & form {
       display: flex;
