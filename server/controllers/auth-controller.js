@@ -82,4 +82,6 @@ const user=async (req,res)=>{
 
 
 
+
+
 module.exports={home, register,login,user};
