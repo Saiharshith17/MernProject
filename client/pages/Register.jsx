@@ -12,7 +12,7 @@ const Register = () => {
   });
 
   const Navigate=useNavigate();
-const storetokenInLS=useAuth();
+const {storetokenInLS}=useAuth();
 
   const handleInput = (e) => {
     console.log(e);

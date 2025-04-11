@@ -12,6 +12,7 @@ const Login=lazy(()=> import("../pages/Login"));
 const Error=lazy(()=> import("../pages/Error"));
 const Navbar=lazy(()=> import("../components/Navbar"));
 const Footer=lazy(()=> import("../components/Footer/Footer"));
+const Logout=lazy(()=>import("../pages/Logout"));
 const App = () => {
   return (
     <>
@@ -25,6 +26,7 @@ const App = () => {
       <Route path="/register" element={<Register/>}/>
       <Route path="/services" element={<Services/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/logout" element={<Logout/>}/>
       <Route path="*" element={<Error/>}/>
     </Routes>
     <Footer/>

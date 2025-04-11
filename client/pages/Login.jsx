@@ -11,7 +11,7 @@ const Login = () => {
     });
 
     const navigate=useNavigate();
-     const storetokenInLS=useAuth();
+     const {storetokenInLS}=useAuth();
     const handleInput=(e)=>{
         let name=e.target.name;
         let value=e.target.value;
